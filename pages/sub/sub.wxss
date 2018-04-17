@@ -1,0 +1,28 @@
+/* pages/sub/sub.wxss */
+
+.newsWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 200rpx;
+  margin: 10rpx;
+}
+
+.textNewsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500rpx;
+}
+
+.miniTextNewsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 25rpx;
+}
+
+.newsPicture {
+   width: 250rpx; 
+  height: 200rpx;
+}
