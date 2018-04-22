@@ -1,5 +1,5 @@
 <!--pages/index/index.wxml-->
-<navigator>新闻小程序</navigator>
+
 <view class='blockWrapper'>
   <text class='blockView' wx:for="{{blockData}}" id='{{index}}' bindtap='onClickListener'>{{item.blockName}}</text>
 </view>

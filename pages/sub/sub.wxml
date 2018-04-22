@@ -2,7 +2,7 @@
 静态页面实现
 
 -->
-<view class='newsWrapper' bindtap='onClickListener' wx:for="{{subBlockNews}}">
+<view class='newsWrapper' wx:for="{{subBlockNews}}" id='{{index}}' bindtap='onFurtherInfo' >
   <view class='textNewsWrapper'>
     <text>{{item.newsTitle}}</text>
     <view class='miniTextNewsWrapper'>

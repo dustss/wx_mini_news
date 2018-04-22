@@ -1,3 +1,14 @@
 <!--pages/detail/detail.wxml-->
-<text class='newsTitle'>山东四县都想当“宋江”：谁想牵头水浒文旅，其他三地都不服</text>
-<view></view>
+<view class='newsHead'>
+  <text class='newsTitle'>{{newsTitle}}</text>
+  <image src='{{newsFirstImagePath}}'></image>
+  <text class='newsDate'>{{newsDate}}</text>
+  <text class='newsFrom'>{{newsFrom}}</text>
+</view>
+ 
+
+<view class='newsBody' wx:for='{{newsDetail}}'>
+ <text class='newsContent'>{{item.newsContent}}</text>
+ <text class='newsSContent'>{{item.newsSContent}}</text>
+ <text class='newsImage' src='{{item.newsImagePath}}'></text>
+</view>

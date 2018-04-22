@@ -6,7 +6,7 @@ Page({
    */
   data: {
     subBlockNews: [],
-    type: 'gj'
+    "type": 'gj'
   },
 
   /**
@@ -21,14 +21,18 @@ Page({
     //   newsPicturePath: 'http://inews.gtimg.com/newsapp_bt/0/3199649303/641'     //初始化数据
     // })
     this.setData({
-      type: options.type
+      "type": options.type
     })
     this.getSubBlockNews()
   },
   /*点击新闻条目显示详情页面，传入参数 id */
-  onClickListener() {
+  onFurtherInfo(e) {
+    // let a = this.subBlockNews[e.target.id].id
+    // let s = this.data.subBlockNews
+    // console.log(e)
+    // console.log(s[e.currentTarget.id].newsID)
     wx.navigateTo({
-      url: '/pages/detail/detail?' + 'id=xxxx'
+      url: '/pages/detail/detail?id=' + this.data.subBlockNews[e.currentTarget.id].newsID
     })
   },
 
@@ -39,7 +43,7 @@ Page({
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
-        type: this.data.type
+        "type": this.data.type
       },
       success: res => {
         this.setSubBlockNews(res.data.result)
@@ -56,7 +60,7 @@ Page({
     let subBlockNews = []
     for (let i = 0; i < result.length ; i++) {
       subBlockNews.push({
-        id:result[i].id,
+        newsID:result[i].id,
         newsTitle: result[i].title,
         newsTime: result[i].date,
         newsFrome: result[i].source,
