@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "微信小程序",
+    "navigationBarTitleText": "mini新闻展示",
     "navigationBarTextStyle": "black"
   }
 }

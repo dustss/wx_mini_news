@@ -5,10 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: 0,
+    id: 1523074607690,
     newsDetail: [],
     newsTitle: "新闻默认标题",
-    newsFirstImagePath: 'http://inews.gtimg.com/newsapp_bt/0/3201496222/641',
     newsDate: "2002-08-08",
     newsFrom: "新华社",
   },
@@ -20,11 +19,10 @@ Page({
     this.setData({
       id: options.id
     })
-    console.log(this.data.id)
-
     this.getNewsDetail()
   },
 
+  /**获取新闻详情 */
   getNewsDetail(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
@@ -40,11 +38,13 @@ Page({
     })
   },
 
+  /**列表数据刷新 */
   setNewsDetail(result) {
-    let newsTitle = result.title
-    let newsFirstImagePath = result.firstImage
-    let newsDate = result.date
-    let newsFrom = result.source
+    this.setData({
+      newsTitle: result.title,
+      newsDate: result.date,
+      newsFrom: result.source,
+    })
     let newsDetail = result.content
     for (let i = 0; i < newsDetail.length; i++) {
       if (newsDetail[i].type == 'p')
@@ -61,16 +61,20 @@ Page({
           newsSContent: newsDetail[i].text
         })
       }
+      this.setData({
+        newsDetail: newsDetail
+      })
     }
     this.setData({
-      newsTitle: newsTitle,
-      newsFirstImagePath: newsFirstImagePath,
-      newsDate: newsDate,
-      newsFrom: newsFrom,
-      newsFirstImagePath: newsFirstImagePath,
-      newsDetail: newsDetail
+      readCount: result.readCount
     })
   },
 
+  /*下拉列表刷新内容 */
+  onPullDownRefresh() {
+    this.getNewsDetail(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
 
 })

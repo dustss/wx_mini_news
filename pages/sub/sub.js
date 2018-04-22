@@ -13,24 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.subBlockNews.push({
-    //   id: '12345678',
-    //   newsTitle: '亚洲媒体高峰会议来了！',
-    //   newsTime: '2018-04-06T11:28:25.000Z',
-    //   newsFrome: '环球资讯',
-    //   newsPicturePath: 'http://inews.gtimg.com/newsapp_bt/0/3199649303/641'     //初始化数据
-    // })
     this.setData({
       "type": options.type
     })
     this.getSubBlockNews()
   },
+  
   /*点击新闻条目显示详情页面，传入参数 id */
   onFurtherInfo(e) {
-    // let a = this.subBlockNews[e.target.id].id
-    // let s = this.data.subBlockNews
-    // console.log(e)
-    // console.log(s[e.currentTarget.id].newsID)
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + this.data.subBlockNews[e.currentTarget.id].newsID
     })
@@ -59,17 +49,21 @@ Page({
   setSubBlockNews(result) {
     let subBlockNews = []
     for (let i = 0; i < result.length ; i++) {
+      if (result[i].firstImage==null)
+      {
+        result[i].firstImage = '/iamges/logo_black_trans.png';  //没有图片的情况 使用默认图片
+      }
       subBlockNews.push({
         newsID:result[i].id,
         newsTitle: result[i].title,
         newsTime: result[i].date,
         newsFrome: result[i].source,
-        newsPicturePath:result[i].firstImage              //需要考虑到没有图片的情况
+        newsPicturePath:result[i].firstImage              
+      })
+      this.setData({
+        subBlockNews: subBlockNews
       })
     }
-    this.setData({
-      subBlockNews: subBlockNews
-    })
   },
 
   /*下拉列表刷新内容 */

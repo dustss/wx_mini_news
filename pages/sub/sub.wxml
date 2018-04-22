@@ -1,8 +1,6 @@
-<!--pages/sub/sub.wxml
-静态页面实现
+<!--pages/sub/sub.wxml-->
 
--->
-<view class='newsWrapper' wx:for="{{subBlockNews}}" id='{{index}}' bindtap='onFurtherInfo' >
+<view class='newsWrapper' wx:for="{{subBlockNews}}" id='{{index}}' bindtap='onFurtherInfo'>
   <view class='textNewsWrapper'>
     <text>{{item.newsTitle}}</text>
     <view class='miniTextNewsWrapper'>
@@ -10,6 +8,5 @@
       <text>{{item.newsFrom}}</text>
     </view>
   </view>
-  <!-- <image class='newsPicture' src='http://inews.gtimg.com/newsapp_bt/0/3202906402/641'></image> -->
-  <image class='newsPicture' src='{{item.newsPicturePath}}'> </image>
+   <image class='newsPicture' src='{{item.newsPicturePath}}' ></image> 
 </view>
