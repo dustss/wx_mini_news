@@ -2,13 +2,14 @@
 静态页面实现
 
 -->
-<view class='newsWrapper' bindtap='onClickListener'>
+<view class='newsWrapper' bindtap='onClickListener' wx:for="{{subBlockNews}}">
   <view class='textNewsWrapper'>
-    <text>清明假期长三角铁路客流堪比春运 上海局增开客车124列</text>
+    <text>{{item.newsTitle}}</text>
     <view class='miniTextNewsWrapper'>
-      <text>2018-04-07 02:01:24</text>
-      <text>央视新闻客户端</text>
+      <text>{{item.newsTime}}</text>
+      <text>{{item.newsFrom}}</text>
     </view>
   </view>
-  <image class='newsPicture' src='http://inews.gtimg.com/newsapp_bt/0/3202906402/641'></image>
+  <!-- <image class='newsPicture' src='http://inews.gtimg.com/newsapp_bt/0/3202906402/641'></image> -->
+  <image class='newsPicture' src='{{item.newsPicturePath}}'> </image>
 </view>
