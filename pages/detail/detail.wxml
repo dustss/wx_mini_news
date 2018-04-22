@@ -8,7 +8,7 @@
  
 
 <view class='newsBody' wx:for='{{newsDetail}}'>
- <text class='newsContent'>{{item.newsContent}}</text>
- <text class='newsSContent'>{{item.newsSContent}}</text>
- <text class='newsImage' src='{{item.newsImagePath}}'></text>
+ <text class='newsContent' wx:if="{{item.newsContent!=null}}">{{item.newsContent}}</text>
+ <text class='newsSContent' wx:if="{{item.newsSContent!=null}}">{{item.newsSContent}}</text>
+ <image class='newsImage' wx:if="{{item.newsImagePath!=null}}" src='{{item.newsImagePath}}'></image>
 </view>

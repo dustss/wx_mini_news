@@ -7,10 +7,10 @@ Page({
   data: {
     id: 0,
     newsDetail: [],
-    newsTitle : "新闻默认标题",
-    newsFirstImagePath : 'http://inews.gtimg.com/newsapp_bt/0/3201496222/641',
-    newsDate : "2002-08-08",
-    newsFrom : "新华社",
+    newsTitle: "新闻默认标题",
+    newsFirstImagePath: 'http://inews.gtimg.com/newsapp_bt/0/3201496222/641',
+    newsDate: "2002-08-08",
+    newsFrom: "新华社",
   },
 
   /**
@@ -48,26 +48,26 @@ Page({
     let newsDetail = result.content
     for (let i = 0; i < newsDetail.length; i++) {
       if (newsDetail[i].type == 'p')
-      newsDetail.push({
-        newsContent: newsDetail[i].text
-      })
-      else if (newsDetail[i].type == 'image'){
         newsDetail.push({
-          newsImagePath: newsDetail[i].image
+          newsContent: newsDetail[i].text
         })
-      } 
-      else if (newsDetail[i].type == 'strong'){
+      else if (newsDetail[i].type == 'image') {
+        newsDetail.push({
+          newsImagePath: newsDetail[i].src
+        })
+      }
+      else if (newsDetail[i].type == 'strong') {
         newsDetail.push({
           newsSContent: newsDetail[i].text
         })
-      } 
+      }
     }
     this.setData({
-      newsTitle : newsTitle,
-      newsFirstImagePath : newsFirstImagePath,
-      newsDate : newsDate,
-      newsFrom : newsFrom,
-      newsFirstImagePath : newsFirstImagePath,
+      newsTitle: newsTitle,
+      newsFirstImagePath: newsFirstImagePath,
+      newsDate: newsDate,
+      newsFrom: newsFrom,
+      newsFirstImagePath: newsFirstImagePath,
       newsDetail: newsDetail
     })
   },
