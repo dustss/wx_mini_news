@@ -42,7 +42,7 @@ Page({
   setNewsDetail(result) {
     this.setData({
       newsTitle: result.title,
-      newsDate: result.date,
+      newsDate: result.date.substr(0, 10) + " " + result.date.substr(11, 8),
       newsFrom: result.source,
     })
     let newsDetail = result.content

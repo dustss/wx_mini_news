@@ -31,7 +31,6 @@ Page({
 
   /*点击板块名称 显示对应板块的列表 */
   onClickListener(e) {
-    console.log(e.target.id)
     wx.navigateTo({
       url: '/pages/sub/sub?type=' + blockCNs[e.target.id]
     })

@@ -9,7 +9,7 @@
 <view class='newsBody' wx:for='{{newsDetail}}'>
   <text class='newsContent' wx:if="{{item.newsContent!=null}}">{{item.newsContent}}</text>
   <text class='newsSContent' wx:if="{{item.newsSContent!=null}}">{{item.newsSContent}}</text>
-  <image class='newsImage' wx:if="{{item.newsImagePath!=null}}" src='{{item.newsImagePath}}'></image>
+  <image class='newsImage' wx:if="{{item.newsImagePath!=null}}" mode='aspectFit' src='{{item.newsImagePath}}'></image>
 </view>
 <view>
   <text> 阅读 {{readCount}}</text>

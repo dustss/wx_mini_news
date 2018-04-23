@@ -2,12 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/sub/sub",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/main/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "mini新闻展示",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

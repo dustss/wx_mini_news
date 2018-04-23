@@ -18,7 +18,7 @@ Page({
     })
     this.getSubBlockNews()
   },
-  
+
   /*点击新闻条目显示详情页面，传入参数 id */
   onFurtherInfo(e) {
     wx.navigateTo({
@@ -48,17 +48,13 @@ Page({
    */
   setSubBlockNews(result) {
     let subBlockNews = []
-    for (let i = 0; i < result.length ; i++) {
-      if (result[i].firstImage==null)
-      {
-        result[i].firstImage = '/iamges/logo_black_trans.png';  //没有图片的情况 使用默认图片
-      }
+    for (let i = 0; i < result.length; i++) {
       subBlockNews.push({
-        newsID:result[i].id,
-        newsTitle: result[i].title,
-        newsTime: result[i].date,
-        newsFrome: result[i].source,
-        newsPicturePath:result[i].firstImage              
+        newsID: result[i].id || "12345678",
+        newsTitle: result[i].title || "标题加载中...",
+        newsTime: (result[i].date || "2008-08-08").substr(0, 10),            
+        newsFrom: result[i].source,
+        newsPicturePath: result[i].firstImage || '/images/logo_black_trans.png'     //空值处理
       })
       this.setData({
         subBlockNews: subBlockNews
