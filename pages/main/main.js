@@ -7,9 +7,10 @@ const blockCNs = [
   'gn', 'gj', 'cj', 'yl', 'js', 'ty', 'other'
 ]
 
+const NEWS_URI = 'https://test-miniprogram.com/api/news/list'
 
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -17,7 +18,6 @@ Page({
     blockData: [],
     selectedID: 1,
     subBlockNews: [],
-    "type": 'gj'
   },
 
   /**
@@ -40,33 +40,30 @@ Page({
     }
     this.setData({ blockData: blockData })
   },
+
   /**
    * 点击tab 选择相应板块 
    */
   onBlockSelect(e) {
     var ID = e.currentTarget.id
-    if (this.selectedID === ID)
-    { return false }
-    this.setData({
-      selectedID: ID
-    })
+    if (this.selectedID === ID) { return false }
+    this.setData({ selectedID: ID })
     this.getSubBlockNews(ID)
   },
 
-    /**
+  /**
    * 从网络侧获取对应板块的新闻列表数据
    */
   getSubBlockNews(id) {
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/list',
-      data: {
-        "type": blockCNs[id]
-      },
+      url: NEWS_URI,
+      data: { "type": blockCNs[id] },
       success: res => {
         this.setSubBlockNews(res.data.result)
       },
     })
   },
+
   /**
    * 设置子版块新闻列表内容
    */
@@ -93,6 +90,7 @@ Page({
 
   /*点击新闻条目显示详情页面，传入参数 id */
   onFurtherInfo(e) {
+    console.log(e)
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + this.data.subBlockNews[e.currentTarget.id].newsID
     })
