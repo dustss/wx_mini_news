@@ -1,9 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/sub/sub",
-    "pages/detail/detail",
-    "pages/main/main"
+    "pages/main/main",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

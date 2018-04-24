@@ -1,5 +1,0 @@
-<!--pages/index/index.wxml-->
-
-<view class='blockWrapper'>
-  <text class='blockView' wx:for="{{blockData}}" id='{{index}}' bindtap='onClickListener'>{{item.blockName}}</text>
-</view>

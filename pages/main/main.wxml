@@ -1,1 +1,18 @@
+<view class="blocksTop">
+  <text class="blockSelection {{selectedID==index?'selected':''}}" wx:for="{{blockData}}" id="{{index}}"               bindtap='onBlockSelect'>{{item.blockName}}
+  </text>
+</view>
 
+<view class="listBottom">
+<view class='newsWrapper' wx:for="{{subBlockNews}}" id='{{index}}' bindtap='onFurtherInfo'>
+  <view class='textNewsWrapper'>
+    <text>{{item.newsTitle}}</text>
+    <view class='miniTextNewsWrapper'>
+      <text>{{item.newsTime}}</text>
+      <text>{{item.newsFrom}}</text>
+    </view>
+  </view>
+   <image class='newsPicture' src='{{item.newsPicturePath}}' ></image> 
+</view>
+
+</view>

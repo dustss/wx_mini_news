@@ -42,6 +42,12 @@
 					"name": "详情页面",
 					"pathName": "pages/detail/detail",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "合二为一",
+					"pathName": "pages/main/main",
+					"query": ""
 				}
 			]
 		}

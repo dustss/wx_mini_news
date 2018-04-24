@@ -1,1 +1,47 @@
-/* pages/main/main.wxss */
+/* tab bar板块选择*/
+
+.blocksTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+}
+
+.blockSelection {
+  height: 80rpx;
+  background-color: whitesmoke;
+}
+
+.selected {
+  background-color: blanchedalmond;
+}
+
+/**所选板块 新闻列表部分*/
+.newsWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 200rpx;
+  margin: 10rpx;
+}
+
+.textNewsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500rpx;
+}
+
+.miniTextNewsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 25rpx;
+}
+
+.newsPicture {
+   width: 250rpx; 
+  height: 200rpx;
+}
