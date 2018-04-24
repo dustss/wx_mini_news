@@ -7,7 +7,7 @@ const blockCNs = [
   'gn', 'gj', 'cj', 'yl', 'js', 'ty', 'other'
 ]
 
-const NEWS_URI = 'https://test-miniprogram.com/api/news/list'
+const URI_NEWS_BLOCK = 'https://test-miniprogram.com/api/news/list'
 
 Page({
   
@@ -56,7 +56,7 @@ Page({
    */
   getSubBlockNews(id) {
     wx.request({
-      url: NEWS_URI,
+      url: URI_NEWS_BLOCK,
       data: { "type": blockCNs[id] },
       success: res => {
         this.setSubBlockNews(res.data.result)
@@ -90,7 +90,6 @@ Page({
 
   /*点击新闻条目显示详情页面，传入参数 id */
   onFurtherInfo(e) {
-    console.log(e)
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + this.data.subBlockNews[e.currentTarget.id].newsID
     })

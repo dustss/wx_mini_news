@@ -1,4 +1,7 @@
 // pages/detail/detail.js
+
+const URI_NEWS_DETAIL = 'https://test-miniprogram.com/api/news/detail'
+
 Page({
 
   /**
@@ -8,7 +11,7 @@ Page({
     id: 1523074607690,
     newsDetail: [],
     newsTitle: "新闻默认标题",
-    newsDate: "2002-08-08",
+    newsDate: "2008-08-08",
     newsFrom: "新华社",
   },
 
@@ -25,7 +28,7 @@ Page({
   /**获取新闻详情 */
   getNewsDetail(callback) {
     wx.request({
-      url: 'https://test-miniprogram.com/api/news/detail',
+      url: URI_NEWS_DETAIL ,
       data: {
         id: this.data.id
       },
@@ -41,24 +44,24 @@ Page({
   /**列表数据刷新 */
   setNewsDetail(result) {
     this.setData({
-      newsTitle: result.title,
-      newsDate: result.date.substr(0, 10) + " " + result.date.substr(11, 8),
-      newsFrom: result.source,
+      newsTitle: result.title||"有什么东西阻碍了加载...默认标题",              //空值处理
+      newsDate: (result.date||"2008-08-08").substr(0, 10) + " " + (result.date||"08:08:08").substr(11, 8),
+      newsFrom: result.source ||"/images/logo_black_trans.png",
     })
     let newsDetail = result.content
     for (let i = 0; i < newsDetail.length; i++) {
       if (newsDetail[i].type == 'p')
         newsDetail.push({
-          newsContent: newsDetail[i].text
+          newsContent: newsDetail[i].text||""
         })
       else if (newsDetail[i].type == 'image') {
         newsDetail.push({
-          newsImagePath: newsDetail[i].src
+          newsImagePath: newsDetail[i].src || ""
         })
       }
       else if (newsDetail[i].type == 'strong') {
         newsDetail.push({
-          newsSContent: newsDetail[i].text
+          newsSContent: newsDetail[i].text || ""
         })
       }
       this.setData({
@@ -66,7 +69,7 @@ Page({
       })
     }
     this.setData({
-      readCount: result.readCount
+      readCount: result.readCount||"-13579"
     })
   },
 

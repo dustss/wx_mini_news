@@ -1,10 +1,10 @@
 <view class="blocksTop">
-  <text class="blockSelection {{selectedID==index?'selected':''}}" wx:for="{{blockData}}" id="{{index}}"                bindtap='onBlockSelect'>{{item.blockName}}
+  <text class="blockSelection {{selectedID==index?'selected':''}}" wx:for="{{blockData}}" id="{{index}}"                bindtap='onBlockSelect' wx:key="head">{{item.blockName}}
   </text>
 </view>
 
 <view class="listBottom">
-  <view class='newsWrapper' wx:for="{{subBlockNews}}" id='{{index}}' bindtap='onFurtherInfo'>
+  <view class='newsWrapper' wx:for="{{subBlockNews}}" wx:key="body" id='{{index}}' bindtap='onFurtherInfo'>
     <view class='textNewsWrapper'>
       <text>{{item.newsTitle}}</text>
       <view class='miniTextNewsWrapper'>
