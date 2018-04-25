@@ -46,7 +46,7 @@ Page({
     this.setData({
       newsTitle: result.title||"有什么东西阻碍了加载...默认标题",              //空值处理
       newsDate: (result.date||"2008-08-08").substr(0, 10) + " " + (result.date||"08:08:08").substr(11, 8),
-      newsFrom: result.source ||"/images/logo_black_trans.png",
+      newsFrom: result.source ||"",
     })
     let newsDetail = result.content
     for (let i = 0; i < newsDetail.length; i++) {

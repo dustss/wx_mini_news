@@ -74,7 +74,7 @@ Page({
         newsID: result[i].id || "12345678",
         newsTitle: result[i].title || "标题加载中...",
         newsTime: (result[i].date || "2008-08-08").substr(0, 10),
-        newsFrom: result[i].source,
+        newsFrom: result[i].source||"",
         newsPicturePath: result[i].firstImage || '/images/logo_black_trans.png'     //空值处理
       })
       this.setData({
